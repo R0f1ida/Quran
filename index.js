@@ -28,15 +28,18 @@ ending.innerHTML = `${
 document.querySelector('form').addEventListener('submit', async(e)=>{
     e.preventDefault();
     const range = data.data.filter(surrah => surrah.number >= e.target.starting.value && surrah.number <= e.target.end.value);
-    // console.log(range)
-    const randomSurrah = range[getRandomNumber(0, range.length)];
-    
+    console.log(range)
+    const randomSurrah = range[getRandomNumber(0, range.length - 1)];
+    console.log(randomSurrah);
     try {
         const Surrah = await fetch(`https://api.alquran.cloud/v1/surah/${randomSurrah.number}`)
         const randomSurrahData = await Surrah.json();
         const surrahVerses = randomSurrahData.data.ayahs;
-        verse.innerHTML = surrahVerses[getRandomNumber(0, surrahVerses.length)].text;
-        numVerses.innerHTML = getRandomNumber(3, surrahVerses.length > 10 ? 10 : surrahVerses.length - 3)
+        const randomVerse = surrahVerses[getRandomNumber(0, surrahVerses.length - 2)].text;
+        const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse )
+        console.log(surrahVerses);
+        verse.innerHTML = randomVerse;
+        numVerses.innerHTML = getRandomNumber(3, surrahVerses.length-1 - verseIndex)
     } catch (error) {
         console.error(error)
     }
