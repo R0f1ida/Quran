@@ -39,7 +39,7 @@ document.querySelector('form').addEventListener('submit', async(e)=>{
         const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse )
         console.log(surrahVerses);
         verse.innerHTML = randomVerse;
-        numVerses.innerHTML = getRandomNumber(3, surrahVerses.length-1 - verseIndex)
+        numVerses.innerHTML += `${getRandomNumber(3, (surrahVerses.length-1 - verseIndex) < 50 ? surrahVerses.length-1 - verseIndex : 50)} Verses after:`
     } catch (error) {
         console.error(error)
     }
