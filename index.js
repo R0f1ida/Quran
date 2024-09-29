@@ -25,22 +25,40 @@ ending.innerHTML = `${
         return `<option value="${surrah.number}">${surrah.name}</option>`
     })
 }`
+
 document.querySelector('form').addEventListener('submit', async(e)=>{
     e.preventDefault();
+    
+    numVerses.innerHTML = '';
     const range = data.data.filter(surrah => surrah.number >= e.target.starting.value && surrah.number <= e.target.end.value);
-    console.log(range)
     const randomSurrah = range[getRandomNumber(0, range.length - 1)];
-    console.log(randomSurrah);
+    getVerse(randomSurrah)
+    document.querySelector(".show-answer").addEventListener('click', (e)=>{
+        if(document.querySelector('.answer').style.opacity == 0) {
+            document.querySelector('.answer').style.opacity = 1;
+            e.target.innerText = 'Hide answer'
+        }else {
+            document.querySelector('.answer').style.opacity = 0;
+            e.target.innerText = 'Show Answer';
+        }
+    })
+
+})
+
+
+const  getVerse = async function(surrah) {
     try {
-        const Surrah = await fetch(`https://api.alquran.cloud/v1/surah/${randomSurrah.number}`)
+        const Surrah = await fetch(`https://api.alquran.cloud/v1/surah/${surrah.number}`)
         const randomSurrahData = await Surrah.json();
         const surrahVerses = randomSurrahData.data.ayahs;
-        const randomVerse = surrahVerses[getRandomNumber(0, surrahVerses.length - 2)].text;
-        const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse )
-        console.log(surrahVerses);
-        verse.innerHTML = randomVerse;
-        numVerses.innerHTML += `${getRandomNumber(3, (surrahVerses.length-1 - verseIndex) < 50 ? surrahVerses.length-1 - verseIndex : 50)} Verses after:`
-    } catch (error) {
+        const versesCopy = [...surrahVerses]
+        const randomVerse = versesCopy[getRandomNumber(0, versesCopy.length - 2)];
+        const answer = versesCopy.filter(v => v.number >= randomVerse.number);
+        const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse.text )
+        verse.innerHTML = `${randomVerse.text} ${randomVerse.numberInSurah}`;
+        numVerses.innerHTML += `recite ${getRandomNumber(3, (versesCopy.length-1 - verseIndex) < 50 ? versesCopy.length-1 - verseIndex : 50)} Verses after:`
+        document.querySelector('.answer').innerHTML =`${answer.map(v => v.text + v.numberInSurah).join(' ')}`
+    } catch (error) { 
         console.error(error)
     }
-})
+}

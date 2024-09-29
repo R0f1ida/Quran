@@ -9,7 +9,7 @@ body{
     align-items: center;
     flex-direction: column-reverse;
     gap: 10px;
-    font-size: 20px;
+    font-size: 1.4rem;
 
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
@@ -50,7 +50,24 @@ body{
     box-shadow: 1px 1px .5 black;
 }
 .verse {
-    font-size: 1.4rem;
     text-shadow: 1px 1px .5 black;
     color: rgb(46, 38, 29);
+}
+.answer{
+    opacity: 0;
+    transition: all 1s;
+}
+.show-answer{
+    background-color: darkkhaki;
+    height: 50px;
+    width: 150px;
+    border: none;
+    margin: 10px;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    border-radius: 5px;
+}
+.show-answer:hover {
+    background-color:rgb(83, 80, 48);
+    box-shadow: 1px 1px .5 rgba(#000, .5);
 }
