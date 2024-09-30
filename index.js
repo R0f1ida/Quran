@@ -53,10 +53,13 @@ const  getVerse = async function(surrah) {
         const surrahVerses = randomSurrahData.data.ayahs;
         const versesCopy = [...surrahVerses]
         const randomVerse = versesCopy[getRandomNumber(0, versesCopy.length - 2)];
-        const answer = versesCopy.filter(v => v.number >= randomVerse.number);
-        const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse.text )
+        const verseIndex = surrahVerses.findIndex(verse => verse.text == randomVerse.text)
+        const numberOfVerses = getRandomNumber(5, (versesCopy.length-1 - verseIndex) < 50 ? versesCopy.length-1 - verseIndex : 50)
+        let answer = versesCopy.filter(v => v.number >= randomVerse.number);
+        answer = answer.slice(0, numberOfVerses);
+        console.log(answer)
         verse.innerHTML = `${randomVerse.text} ${randomVerse.numberInSurah}`;
-        numVerses.innerHTML += `recite ${getRandomNumber(3, (versesCopy.length-1 - verseIndex) < 50 ? versesCopy.length-1 - verseIndex : 50)} Verses after:`
+        numVerses.innerHTML += `recite ${numberOfVerses} Verses after:`
         document.querySelector('.answer').innerHTML =`${answer.map(v => v.text + v.numberInSurah).join(' ')}`
     } catch (error) { 
         console.error(error)
