@@ -1,0 +1,21 @@
+{
+  "name": "quran",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss css/style.comp.css -u autoprefixer -b \"last 10 versions\" -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "Rofaida",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.83.1"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

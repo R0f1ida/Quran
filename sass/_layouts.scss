@@ -1,0 +1,23 @@
+.header {
+    background-color: $secondary-color;
+    padding: 20px;
+    text-align: center;
+}
+
+.content{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 10px;
+    font-size: 1.4rem;
+
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+.navbar{
+    font-size: 20px;
+}
+.navbar-brand{
+    padding: 0;
+}

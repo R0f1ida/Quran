@@ -1,7 +1,8 @@
 let data;
 const starting = document.querySelector('#starting');
 const ending = document.querySelector('#end');
-const verse = document.querySelector('#verse')
+const verse = document.querySelector('#verse');
+const endVerse = document.querySelector('#endVerse');
 const numVerses = document.querySelector('#num');
 function getRandomNumber(min, max) {
     // console.log(Math.floor(Math.random() * (max - min + 1)) + min)
@@ -26,9 +27,8 @@ ending.innerHTML = `${
     })
 }`
 
-document.querySelector('form').addEventListener('submit', async(e)=>{
+document.querySelector('.form').addEventListener('submit', async(e)=>{
     e.preventDefault();
-    
     numVerses.innerHTML = '';
     const range = data.data.filter(surrah => surrah.number >= e.target.starting.value && surrah.number <= e.target.end.value);
     const randomSurrah = range[getRandomNumber(0, range.length - 1)];
@@ -60,7 +60,8 @@ const  getVerse = async function(surrah) {
         let answer = versesCopy.filter(v => v.number >= randomVerse.number);
         answer = answer.slice(0, numberOfVerses);
         verse.innerHTML = `${chosenVerse}`;
-        numVerses.innerHTML += `recite ${numberOfVerses} Verses after:`
+        numVerses.innerHTML += `recite <span>${numberOfVerses}</span> Verses after:`
+        endVerse.innerHTML = `Until: <span>${answer[answer.length - 1].text}</span>`
         document.querySelector('.answer').innerHTML =`${answer.map(v => v.text + v.numberInSurah).join(' ')}`
     } catch (error) { 
         console.error(error)
