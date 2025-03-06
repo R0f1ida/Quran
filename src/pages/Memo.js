@@ -106,31 +106,34 @@ export function Memo() {
     setEnd(event.target.value);
   };
   return (
-    <div className="content">
-      <Answer opacity={isVisible ? 1 : 0} answers={answers.map(a => `${a.text} ${a.numberInSurah}`).join(' ')}/>
-      <button className="show-answer" onClick={showAnswer}>Show Answer</button>
-      <form className="form">
-        <label htmlFor="starting" className="form__label">From</label>
-        <select name="starting" id="starting" className="form__select" value={startValue} onChange={handelStartChange}>
-          {
-            sowar.map(s => <option value={s.number}>{s.name}</option>
-          )} {/* Render the fetched options here */}
-        </select>
-        <label htmlFor="end">To:</label>         
-        <select name="end" id="end" className="form__select" value={endValue} onChange={handelEndChange}>
-          {
-            sowar.map(s => <option value={s.number}>{s.name}</option>
-          )} 
-        </select>
-        <button type='button' className="form__btn" onClick={submitChoice}>Start</button>
-      </form>
-      <Verse
-        opacity={isHidden ? 0 : 1}
-        num={randomLimit}
-        start={randomAyah}
-        end={randomFinishVerse}
-      />
-    </div>
+    <main>
+      <div className="content">
+        <Answer opacity={isVisible ? 1 : 0} answers={answers.map(a => `${a.text} ${a.numberInSurah}`).join(' ')}/>
+        <button className="show-answer" onClick={showAnswer}>Show Answer</button>
+        <form className="form">
+          <label htmlFor="starting" className="form__label">From</label>
+          <select name="starting" id="starting" className="form__select" value={startValue} onChange={handelStartChange}>
+            {
+              sowar.map(s => <option value={s.number}>{s.name}</option>
+            )} {/* Render the fetched options here */}
+          </select>
+          <label htmlFor="end">To:</label>         
+          <select name="end" id="end" className="form__select" value={endValue} onChange={handelEndChange}>
+            {
+              sowar.map(s => <option value={s.number}>{s.name}</option>
+            )} 
+          </select>
+          <button type='button' className="form__btn" onClick={submitChoice}>Start</button>
+        </form>
+        <Verse
+          opacity={isHidden ? 0 : 1}
+          num={randomLimit}
+          start={randomAyah}
+          end={randomFinishVerse}
+        />
+      </div>
+    </main>
+
   );
 }
 
