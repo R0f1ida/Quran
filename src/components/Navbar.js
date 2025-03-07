@@ -1,6 +1,4 @@
-import logo from '../img/hafiz-logo-02-02.png'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from '../pages/Layout';
+import { Routes, Route } from "react-router-dom";
 import { Quran } from '../pages/Quran';
 import { Translate } from '../pages/Translate';
 import { Memo } from '../pages/Memo';

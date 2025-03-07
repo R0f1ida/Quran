@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Verse } from "../components/Verse";
-import { fetchAyah, fetchSurrah, getRandomNumber, randomVerse } from "../components/helper";
+import { fetchAyah, fetchSurrah, getRandomNumber} from "../components/helper";
 import { Answer } from "../components/Answer";
 
 
@@ -24,7 +24,7 @@ export function Memo() {
       
     }
     fetchData();
-  },[]); // Added dependency array    setSowar(await fetchSurrah());
+  },[sowar, startValue, endValue]); // Added dependency array    setSowar(await fetchSurrah());
 
   useEffect(() => {
     if (sowar.length > 0) {
