@@ -18,17 +18,6 @@ export function Navbar(){
 
 
       </>
-
-      // <BrowserRouter>
-      //   <Routes>
-      //     <Route path="/" element={<Homepage />}>
-      //       <Route index element={<Homepage />} />
-      //       <Route path="blogs" element={<Memorise />} />
-      //       <Route path="contact" element={<Contact />} />
-      //       <Route path="*" element={<NoPage />} />
-      //     </Route>
-      //   </Routes>
-      // </BrowserRouter>
         
     );
 }
