@@ -1,5 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
-import { Navbar } from "./Navbar";
+
 import Layout from "../pages/Layout";
 
 export function Header() {
