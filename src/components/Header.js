@@ -3,9 +3,9 @@ import Layout from "../pages/Layout";
 
 export function Header() {
     return (
-        <header className="App-header">
+        <header className="header">
             <Layout />
-            <h1>h</h1>
+            <h1 className="header--title">Start your memorising journey right now</h1>
         </header>
     );
 }

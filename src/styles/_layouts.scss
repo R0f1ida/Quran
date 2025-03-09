@@ -1,17 +1,28 @@
-.App-header{
-  background-image: linear-gradient(to right, rgba($primary-color-light,.78), rgba($primary-color-dark,.27)),url('./img/masjid-maba-_AXj_99P680-unsplash\ 1.png');
-  background-position: right;
+.header{
+  background-image: linear-gradient(to right, rgba($primary-color-light,.78), rgba($primary-color-dark,.27)),url('./img/masjid-maba-_AXj_99P680-unsplash.jpg');
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
-  // background-attachment: fixed;
-  min-height: 50vh;
+  background-attachment: fixed;
+  height: 50vh;
   padding-top: 10px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: left;
+  position: relative;
+  &--title{
+    font-size: 48px;
+    margin-top: -5.5rem;
+    padding: 2rem;
+    background-color: rgba($primary-color-light, .67);
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:'istok web', sans-serif;
+    text-transform: uppercase;
+  }
 }
 
 .content{
@@ -31,6 +42,7 @@
   width: 80%;
   height: min-content;
   margin: 0 auto;
+  z-index: 100;
   box-shadow: 0px 8px 5px rgba(0, 0, 0, .25);
   &-brand{
     padding: 0 12px;
