@@ -1,35 +1,35 @@
 .form{
     display: block;
-    margin-top: 10px;
+    margin-top: 1rem;
     &__select{
-        width: 250px;
-        height: 50px;
+        width: 25rem;
+        height: 5rem;
         border: none;
         display: block;
-        border-radius: 10px;
+        border-radius: 1rem;
         text-align: center;
-        font-size: 1.4rem;
-        margin: 10px;
+        font-size: 2rem;
+        margin: 1rem;
         background-color: rgb(253, 248, 241);
         color: rgb(46, 38, 29);
         
         & option{
-            font-size: 1.4rem;
+            font-size: 2rem;
         }
         
     }
     &__btn{
         background-color: #4CAF50;
-        height: 50px;
-        width: 150px;
+        height: 5rem;
+        width: 15rem;
         border: none;
-        margin: 10px;
+        margin: 1rem;
         color: antiquewhite;
-        font-size: 1.4rem;
+        font-size: 2rem;
         border-radius: 5px;
         &:hover{
             background-color: #3e8e41;
-            box-shadow: 1px 1px .5 black;
+            box-shadow: $shadow-dark;
         }
     }
 
@@ -37,7 +37,7 @@
 }
 
 .verse {
-    text-shadow: 1px 1px .5 black;
+    text-shadow: $shadow-dark;
     transition: all 1s;
     &--end:not(span){
         color: #3e8e41;
@@ -49,16 +49,16 @@
 // }
 .show-answer{
     background-color: darkkhaki;
-    height: 50px;
-    width: 150px;
+    height: 5rem;
+    width: 15rem;
     border: none;
-    margin: 10px;
+    margin: 1rem;
     color: antiquewhite;
-    font-size: 1.4rem;
-    border-radius: 5px;
+    font-size: 2rem;
+    border-radius: .5rem;
     &:hover {
         background-color:rgb(83, 80, 48);
-        box-shadow: 1px 1px .5 rgba(#000, .5);
+        box-shadow: $shadow-dark .5;
     }
 }
 .hidden{

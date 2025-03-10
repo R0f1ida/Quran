@@ -1,3 +1,19 @@
 $primary-color-dark: #1A361A;
 $primary-color-light: #4A9C4A;
 $font-stack: 'Helvetica Neue', sans-serif;
+$shadow-dark: .1rem .1rem .5 black;
+
+@mixin respond($breakpoints) {
+    @if $breakpoints == phone {
+        @media (max-width: 37.5em) { @content };
+    }
+    @if $breakpoints == tab-port {
+        @media (max-width: 56.25em) { @content };
+    }
+    @if $breakpoints == tab-land {
+        @media (max-width: 75em) { @content };
+    }
+    @if $breakpoints == big-desktop {
+        @media (max-width: 112.5em) { @content };
+    }
+};

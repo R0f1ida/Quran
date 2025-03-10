@@ -5,14 +5,14 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 50vh;
-  padding-top: 10px;
+  padding-top: 1rem;
   font-size: calc(10px + 2vmin);
   color: white;
   text-align: left;
   position: relative;
   &--title{
-    font-size: 48px;
-    margin-top: -5.5rem;
+    font-size: 4.8rem;
+    // margin-top: -5.5rem;
     padding: 2rem;
     background-color: rgba($primary-color-light, .67);
     width: 50%;
@@ -22,6 +22,15 @@
     align-items: center;
     font-family:'istok web', sans-serif;
     text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include respond(tab-land){
+      width: 100%;
+      font-size: 3.5rem;
+
+    }
+    
   }
 }
 
@@ -31,8 +40,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
-  gap: 10px;
-  font-size: 1.4rem;
+  gap: 1rem;
+  font-size: 2rem;
 
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
@@ -43,16 +52,30 @@
   height: min-content;
   margin: 0 auto;
   z-index: 100;
-  box-shadow: 0px 8px 5px rgba(0, 0, 0, .25);
+  box-shadow: 0 .8rem .5rem rgba(0, 0, 0, .25);
+  padding: 0 2rem;
+  &-toggler{
+    @include respond(tab-port){
+      // padding: 0 2rem;
+      transition: none;
+    }
+  }
   &-brand{
     padding: 0 12px;
     margin: 0;
+    img{
+      width: 5rem;
+      @include respond(tab-port){
+        width: 4rem;
+      }
+    }
+    
   }
   &-nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     padding: 0;
     margin: 0;
   };
@@ -60,9 +83,9 @@
 .nav{
   &-item{
     text-align: center;
-    padding: 0 12px;
+    padding: 0 1.2rem;
     color: black;
-    font-size: 21px;
+    font-size: 2.1rem;
     // border-right: solid black .5px;
   }
 }
@@ -70,13 +93,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+  padding: .5rem 0;
   margin: 0;
 }
 .footer{
   background-color: rgba($primary-color-light, .67);
   color: white;
-  padding: 10px;
+  padding: 1rem;
   text-align: center;
   font-size: 1rem;
 }
