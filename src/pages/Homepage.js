@@ -27,14 +27,18 @@ export function Homepage() {
     }, .01);} , []);
     return (
         <div className='homepage'>
+            <p className='homepage--verse'>وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِنْ مُدَّكِرٍ</p>
             <div className='homepage__static'>
-                <IslamPray />
-                <p className='homepage--text'>+ {muslim} Muslim</p>
+                <div className='homepage--text'>
+                    <IslamPray />
+                    <p className='homepage--number'>+ {muslim} Muslim</p>
+                </div>
+                <div className='homepage--text'>
+                    <QuranRehal />
+                    <p className='homepage--number'>+ {hafiz} Hafiz</p>
+                </div>
             </div>
-            <div className='homepage__static'>
-                <QuranRehal />
-                <p className='homepage--text'>+ {hafiz} Hafiz</p>
-            </div>
+
         </div>
     );
 }
