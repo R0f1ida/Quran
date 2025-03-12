@@ -108,7 +108,7 @@
 
 .sowar{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
     align-items: center;
     gap: 2rem;
     padding: 1rem;
@@ -116,11 +116,23 @@
     &--item{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
         font-size: 3rem;
         font-family: 'Amiri' , serif;
-        border: #3e8e41 solid .5rem;
+        border-style:ridge;
+        border-top-left-radius: 5rem;
+        border-bottom-right-radius: 5rem;
+        background-image: linear-gradient(to right, rgba($primary-color-light,.78), rgba($primary-color-dark,.27));
+        // border-bottom-right-radius: 50%;
         text-align: center;
-
-
+        padding: 2rem;
+    }
+    &--number{
+        color: #fff;
+        background-color: $primary-color-dark; 
+        padding: 2rem;
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
     }
 }

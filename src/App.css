@@ -97,7 +97,7 @@
 
 .sowar {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
   align-items: center;
   gap: 2rem;
   padding: 1rem;
@@ -106,10 +106,23 @@
 .sowar--item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   font-size: 3rem;
   font-family: "Amiri", serif;
-  border: #3e8e41 solid 0.5rem;
+  border-style: ridge;
+  border-top-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-image: linear-gradient(to right, rgba(74, 156, 74, 0.78), rgba(26, 54, 26, 0.27));
   text-align: center;
+  padding: 2rem;
+}
+.sowar--number {
+  color: #fff;
+  background-color: #1A361A;
+  padding: 2rem;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .header {
