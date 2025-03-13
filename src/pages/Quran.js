@@ -22,7 +22,7 @@ export function Quran() {
         console.log(sowar); 
         }
         fetchData();
-    }, []);
+    }, [sowar]);
     return (
         <div>
             <div>
