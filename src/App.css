@@ -97,7 +97,7 @@
 
 .sowar {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   align-items: center;
   gap: 2rem;
   padding: 1rem;
@@ -108,7 +108,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-family: "Amiri", serif;
   border-style: ridge;
   border-top-left-radius: 5rem;

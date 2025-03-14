@@ -3,30 +3,34 @@ import { fetchAyah, fetchSurrah } from "../components/helper";
 
 export function Quran() {
     const [sowar, setSowar] = useState([]);
-    // const [surrah, setSurrah] = useState([]);
+    const [surrah, setSurrah] = useState([]);
     const getSurrah = async (e) => {
         // setSurrah(fetchedSurrah);
         if(e.target.classList.contains('sowar--item')) {
-            let surrahNumber = e.target.querySelector('.sowar--number');
-            const fetchedSurrah = await fetchAyah(surrahNumber);
-            console.log(fetchedSurrah);
+            const surrahNumber = e.target.querySelector('.sowar--number');
+            const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
+            setSurrah(fetchedSurrah);
+            console.log(surrah);
+        }else {
+            const surrahNumber = e.target.parentElement.querySelector('.sowar--number');
+            const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
+            setSurrah(fetchedSurrah);
+            console.log(surrah);
 
-        }else{
-            console.log(e.target);
-        }
+        }    
     }
     useEffect(() => {
         const fetchData = async () => {
         const fetchedSowar = await fetchSurrah();
         setSowar(fetchedSowar);
-        console.log(sowar); 
+        // console.log(sowar); 
         }
         fetchData();
     }, [sowar]);
     return (
         <div>
             <div>
-                <h1>Quran</h1>
+                <div>{surrah.map(ayah => `${ayah.text} ${ayah.numberInSurah}`).join('')}</div>
             </div>
             <ul className='sowar'>
                 {sowar.map(s=> 

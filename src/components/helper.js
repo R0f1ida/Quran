@@ -20,7 +20,7 @@ export const fetchSurrah = async () => {
     try {
       const response = await fetch("https://api.alquran.cloud/v1/surah")
       const data = await response.json()
-      console.log(data);
+      // console.log(data);
       const result = data.data.map(s => {
         return {
           ...s,
