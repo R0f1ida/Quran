@@ -95,7 +95,29 @@
   text-transform: uppercase;
 }
 
-.sowar {
+.quran {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+}
+.quran__surrah {
+  font-size: 2rem;
+  text-align: right;
+  padding: 2rem;
+}
+.quran__link {
+  text-decoration: none;
+  color: #4A9C4A;
+  font-size: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+.quran__link:hover {
+  color: #1A361A;
+  transform: translateY(-0.5rem);
+  box-shadow: 0.1rem 0.1rem 0.5 black;
+}
+.quran__sowar {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   align-items: center;
@@ -103,7 +125,7 @@
   padding: 1rem;
   list-style: none;
 }
-.sowar--item {
+.quran__sowar--item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +139,7 @@
   text-align: center;
   padding: 2rem;
 }
-.sowar--number {
+.quran__sowar--number {
   color: #fff;
   background-color: #1A361A;
   padding: 2rem;
