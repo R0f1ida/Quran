@@ -17,7 +17,7 @@ export function Homepage() {
             }      
         });
         setMuslim((prevNumber) => {
-            if (prevNumber < 3000000000) {
+            if (prevNumber < 2000000000) {
                 return prevNumber + 1; // Increment if below the limit
               } else {
                 clearInterval(interval); // Stop the interval

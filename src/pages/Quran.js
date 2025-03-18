@@ -8,14 +8,20 @@ export function Quran() {
         // setSurrah(fetchedSurrah);
         if(e.target.classList.contains('quran__sowar--item')) {
             const surrahNumber = e.target.querySelector('.quran__sowar--number');
-            const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
-            setSurrah(fetchedSurrah);
-            console.log(surrah);
+            if (surrahNumber){
+                const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
+                setSurrah(fetchedSurrah);
+                console.log(surrah);
+            }
+
         }else {
             const surrahNumber = e.target.parentElement.querySelector('.quran__sowar--number');
-            const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
-            setSurrah(fetchedSurrah);
-            console.log(surrah);
+            if (surrahNumber){
+                const fetchedSurrah = await fetchAyah(surrahNumber.textContent);
+                setSurrah(fetchedSurrah);
+                console.log(surrah);
+            }
+           
 
         }    
     }
@@ -35,8 +41,7 @@ export function Quran() {
                 {/* <button className="quran__surrah--prev">prev</button>
                 <button className="quran__surrah--next">next</button>
                  */}
-                <button className="quran__surrah--audio">play</button>
-                <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/2.mp3" controls></audio>
+                {/* <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/2.mp3" controls></audio> */}
                 <div>
                     {surrah.map(ayah => `${ayah.text} ${ayah.numberInSurah}`).join(' ')}
                 </div>    
