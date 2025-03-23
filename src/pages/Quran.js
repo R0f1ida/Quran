@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
 import { fetchAyah, fetchSurrah } from "../components/helper";
+// import AudioPlayer from "../components/AudioPlayer";
 
 export function Quran() {
     const [sowar, setSowar] = useState([]);
     const [surrah, setSurrah] = useState([]);
+    // const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const fetchData = async () => {
+        const fetchedSowar = await fetchSurrah();
+        setSowar(fetchedSowar);
+        // console.log(sowar); 
+        }
+        fetchData();
+    }, [sowar]);
+
+    
     const getSurrah = async (e) => {
         // setSurrah(fetchedSurrah);
+        // setIsVisible(true);
         if(e.target.classList.contains('quran__sowar--item')) {
             const surrahNumber = e.target.querySelector('.quran__sowar--number');
             if (surrahNumber){
@@ -25,14 +39,8 @@ export function Quran() {
 
         }    
     }
-    useEffect(() => {
-        const fetchData = async () => {
-        const fetchedSowar = await fetchSurrah();
-        setSowar(fetchedSowar);
-        // console.log(sowar); 
-        }
-        fetchData();
-    }, [sowar]);
+
+
     return (
         <div className="quran">
             <a href="#sowar" className="quran__link">go to index &darr;</a>
@@ -41,8 +49,14 @@ export function Quran() {
                 {/* <button className="quran__surrah--prev">prev</button>
                 <button className="quran__surrah--next">next</button>
                  */}
-                {/* <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/2.mp3" controls></audio> */}
+                {/* <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/2.mp3" controls></audio>
+                <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/2.mp3" controls></audio>
+                <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/3.mp3" controls></audio>
+                <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/4.mp3" controls></audio>
+                <audio src="https:\/\/cdn.islamic.network\/quran\/audio\/128\/ar.alafasy\/5.mp3" controls></audio> */}
+                
                 <div>
+                    {/* {isVisible && <AudioPlayer audioList={[0, 1, 2]} />} */}
                     {surrah.map(ayah => `${ayah.text} ${ayah.numberInSurah}`).join(' ')}
                 </div>    
             </div>
